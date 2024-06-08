@@ -97,16 +97,31 @@ form button:hover {
   background-color: #f1f1f1;
 }
 
+ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  max-width: 600px; /* Max width for the list container */
+  margin: 0 auto; /* Center the list container */
+}
+
 .stock-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #ffffff; /* White background for list items */
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+  display: flex; /* Use flexbox for better layout */
+  flex-direction: column; /* Column layout for item details */
+  align-items: flex-start; /* Align items to the start of the flex container */
 }
 
-.stock-item span {
-  display: block;
+.stock-item p {
+  margin: 5px 0;
+  word-wrap: break-word; /* Ensure long words break correctly */
 }
-
 .profit {
   color: green;
 }

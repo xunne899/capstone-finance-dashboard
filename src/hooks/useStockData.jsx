@@ -8,7 +8,8 @@ const useStockData = (symbol) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.get(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=YIM10TL8PY4AUARQ`);
+      const response = await axios.get(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${MPQ2A9RO3QINSNOD}`);
+   
       const quote = response.data["Global Quote"];
       if (quote && quote["05. price"]) {
         setData(quote);

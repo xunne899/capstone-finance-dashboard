@@ -22,3 +22,6 @@ const StockItem = ({ stock }) => {
 };
 
 export default StockItem;
+
+
+
