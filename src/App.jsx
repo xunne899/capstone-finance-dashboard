@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { StockProvider } from './context/StockContext';
 import StockEntryForm from './components/StockEntryForm';
 import StockList from './components/StockList';
@@ -8,7 +10,7 @@ const App = () => {
 <StockProvider>
       <div className="app-container">
         <header className="header">
-          <h1>Finance Dashboard</h1>
+       <h1>Finance Dashboard</h1>
         </header>
         <main className="main-content">
           <StockEntryForm />
