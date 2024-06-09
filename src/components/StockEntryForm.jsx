@@ -8,10 +8,13 @@
 //   const [symbol, setSymbol] = useState('');
 //   const [price, setPrice] = useState('');
 //   const [quantity, setQuantity] = useState('');
+//   const { data, error } = useStockData(symbol);
+//   console.log("error",error)
+//   console.log("data",data)
 
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
-//     const { data, error } = useStockData(symbol);
+
 //     if (!error && data) {
 //       addStock({ symbol, price: parseFloat(price), quantity: parseInt(quantity) });
 //       setSymbol('');
@@ -20,6 +23,9 @@
 //     } else {
 //       alert('Invalid stock symbol');
 //     }
+
+//     console.log("error",error)
+//     console.log("data",data)
 //   };
 
 //   return (
