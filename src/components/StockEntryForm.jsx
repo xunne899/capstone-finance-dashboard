@@ -46,69 +46,123 @@
 
 
 //  src/components/StockForm.jsx
-import React, { useState, useContext } from 'react';
-import { StockContext } from '../context/StockContext';
-import { mockData } from '../mockData';
+// import React, { useState, useContext } from 'react';
+// import { StockContext } from '../context/StockContext';
+// import { mockData } from '../mockData';
+
+// const StockEntryForm = () => {
+//     const [symbol, setSymbol] = useState('');
+//     const [quantity, setQuantity] = useState('');
+//     const [purchasePrice, setPurchasePrice] = useState('');
+//     const { stocks, setStocks } = useContext(StockContext);
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+
+//         const stock = mockData.find(
+//             (data) => data["Global Quote"]["01. symbol"].toUpperCase() === symbol.toUpperCase()
+//         );
+
+//         if (stock) {
+//             const newStock = {
+//                 symbol: stock["Global Quote"]["01. symbol"],
+//                 quantity: parseFloat(quantity),
+//                 purchasePrice: parseFloat(purchasePrice),
+//                 currentPrice: parseFloat(stock["Global Quote"]["05. price"]),
+//             };
+//             setStocks([...stocks, newStock]);
+//             setSymbol('');
+//             setQuantity('');
+//             setPurchasePrice('');
+//         } else {
+//             alert('Invalid stock symbol');
+//         }
+//     };
+
+//     return (
+//         <form onSubmit={handleSubmit}>
+//             <input
+//                 type="text"
+//                 placeholder="Stock Symbol"
+//                 value={symbol}
+//                 onChange={(e) => setSymbol(e.target.value)}
+//                 required
+//             />
+//             <input
+//                 type="number"
+//                 placeholder="Quantity"
+//                 value={quantity}
+//                 onChange={(e) => setQuantity(e.target.value)}
+//                 required
+//             />
+//             <input
+//                 type="number"
+//                 placeholder="Purchase Price"
+//                 value={purchasePrice}
+//                 onChange={(e) => setPurchasePrice(e.target.value)}
+//                 required
+//             />
+//             <button type="submit">Add Stock</button>
+//         </form>
+//     );
+// };
+
+// export default StockEntryForm;
+
+
+
+
+// src/components/StockEntryForm.jsx
+// import React, { useState, useContext } from "react";
+// import { StockContext } from "../context/StockContext";
+import { useState, useContext } from "react";
+import { StockContext } from "../context/StockContext";
 
 const StockEntryForm = () => {
-    const [symbol, setSymbol] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [purchasePrice, setPurchasePrice] = useState('');
-    const { stocks, setStocks } = useContext(StockContext);
+  const [symbol, setSymbol] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [purchasePrice, setPurchasePrice] = useState("");
+  const { stocks, setStocks } = useContext(StockContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const stock = mockData.find(
-            (data) => data["Global Quote"]["01. symbol"].toUpperCase() === symbol.toUpperCase()
-        );
-
-        if (stock) {
-            const newStock = {
-                symbol: stock["Global Quote"]["01. symbol"],
-                quantity: parseFloat(quantity),
-                purchasePrice: parseFloat(purchasePrice),
-                currentPrice: parseFloat(stock["Global Quote"]["05. price"]),
-            };
-            setStocks([...stocks, newStock]);
-            setSymbol('');
-            setQuantity('');
-            setPurchasePrice('');
-        } else {
-            alert('Invalid stock symbol');
-        }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newStock = {
+      symbol: symbol,
+      quantity: parseFloat(quantity),
+      purchasePrice: parseFloat(purchasePrice),
     };
+    setStocks([...stocks, newStock]);
+    setSymbol("");
+    setQuantity("");
+    setPurchasePrice("");
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Stock Symbol"
-                value={symbol}
-                onChange={(e) => setSymbol(e.target.value)}
-                required
-            />
-            <input
-                type="number"
-                placeholder="Quantity"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                required
-            />
-            <input
-                type="number"
-                placeholder="Purchase Price"
-                value={purchasePrice}
-                onChange={(e) => setPurchasePrice(e.target.value)}
-                required
-            />
-            <button type="submit">Add Stock</button>
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Stock Symbol"
+        value={symbol}
+        onChange={(e) => setSymbol(e.target.value)}
+        required
+      />
+      <input
+        type="number"
+        placeholder="Quantity"
+        value={quantity}
+        onChange={(e) => setQuantity(e.target.value)}
+        required
+      />
+      <input
+        type="number"
+        placeholder="Purchase Price"
+        value={purchasePrice}
+        onChange={(e) => setPurchasePrice(e.target.value)}
+        required
+      />
+      <button type="submit">Add Stock</button>
+    </form>
+  );
 };
 
 export default StockEntryForm;
-
-
-
-
