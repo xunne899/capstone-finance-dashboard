@@ -11,13 +11,13 @@ const useStockData = (symbol) => {
   const fetchData = useCallback(async () => {
     try {
       // TODO: remove mock data and add back API call
-      // const response = await axios.get(
-      //   `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=G15YSZ8HLKGLDGID`
-      // );
-      // const quote = response.data["Global Quote"];
+      const response = await axios.get(
+        `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=G15YSZ8HLKGLDGID`
+      );
+      const quote = response.data["Global Quote"];
       // console.log("data", quote)
-      const quote = mockData;
-         console.log("data", quote)
+      // const quote = mockData;
+        //  console.log("data", quote)
       if (quote && quote["05. price"]) {
         setData(quote);
         setError(null);
